@@ -1,0 +1,20 @@
+from Bio import Phylo
+from io import StringIO
+
+dataset = open(r"C:\Users\rifak\Downloads\rosalind_nwck (1).txt")
+result = []
+
+for s in dataset:
+    if s == '\n':
+        continue
+    s = s.rstrip()
+    start, end = next(dataset).rstrip().split(' ')
+    handle = StringIO(s)
+    tree = Phylo.read(handle, "newick")
+    
+    x = tree.trace(start, end)
+    if x[0].name == start:
+        del(x[0])
+    result.append(str(len(x)))
+
+print(' '.join(result))
