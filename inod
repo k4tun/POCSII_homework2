@@ -1,0 +1,4 @@
+with open(r"C:\Users\rifak\Downloads\rosalind_inod (1).txt") as f:
+    n = int(f.readline().strip())
+
+print(n-2)
